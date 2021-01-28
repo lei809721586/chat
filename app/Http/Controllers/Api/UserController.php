@@ -81,27 +81,7 @@ class UserController extends Controller
         $result = $this->memberService->weixLogin($params);
         return Result(200,'success',$result);
     }
-
-
-    /**
-     * 微信用户一键登录(微信获取手机号码，暂时不用)
-     * @param string $code
-     * @param string $iv
-     * @param string $encrypted_data
-     * @return mixed
-     */
-    public function weixLoginNew()
-    {
-        $params = $this->request->only(['code', 'iv','encrypted_data']);
-        $rule = [
-            'code' => 'required|string',
-            'iv' => 'required|string',
-            'encrypted_data' => 'required|string',
-        ];
-        $this->apiCheckParams($params, $rule);
-        $result = $this->memberService->weixLoginNew($params);
-        return Result(200,'success',$result);
-    }
+    
 
 
     /**
@@ -119,13 +99,4 @@ class UserController extends Controller
         return Result(200,'success',$result);
     }
 
-    /**
-     * 获取vip充值卡
-     * return void
-     */
-    public function vipCardList()
-    {
-        $result = $this->memberService->getVipCardList();
-        return Result(200,'success',$result);
-    }
 }
