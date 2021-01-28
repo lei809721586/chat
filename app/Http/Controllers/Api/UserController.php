@@ -27,10 +27,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        //测试用swoole异步处理
-//        list($body) = HttpCurl::request('https://api.mymealwell.cn/task', 'POST',[
-//            'id' => '666'
-//        ]);
         return Result(200,'success');
     }
 
